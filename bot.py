@@ -1,7 +1,8 @@
+import os
 import telebot
 
-# Bilkul fresh aur sahi format wala token
-BOT_TOKEN = "8814630740:AAH5NZuguoz6mnVjCy-l5kq7F_ETQ17Pvnw"
+# Render ke environment variable se token auto-fetch hoga
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(BOT_TOKEN)
 
 @bot.message_handler(commands=['start'])
