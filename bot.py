@@ -1,7 +1,7 @@
 import telebot
 
-# Direct token configuration bina kisi variable ke loop ke
-BOT_TOKEN = "8814630740:AAEcQJICbiSlxAbJc1Y9eB-U2OFPbERVNe4"
+# Naya fresh token bina kisi space ke
+BOT_TOKEN = "8814630740:AAHOUGlv1AFaDxH3c-12RxX3yQ-0iLJ7qEg"
 bot = telebot.TeleBot(BOT_TOKEN)
 
 @bot.message_handler(commands=['start'])
