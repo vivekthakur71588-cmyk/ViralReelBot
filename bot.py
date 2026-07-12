@@ -1,8 +1,7 @@
 import telebot
-import os
 
-# Railway variables se token uthayega, agar nahi mila toh hardcoded use karega
-BOT_TOKEN = os.getenv("BOT_TOKEN", "8814630740:AAEcQJICbiSlxAbJc1Y9eB-U2OFPbERVNe4")
+# Direct token configuration bina kisi variable ke loop ke
+BOT_TOKEN = "8814630740:AAEcQJICbiSlxAbJc1Y9eB-U2OFPbERVNe4"
 bot = telebot.TeleBot(BOT_TOKEN)
 
 @bot.message_handler(commands=['start'])
