@@ -1,6 +1,6 @@
 import telebot
 
-# Sahi fresh token bina kisi space ke
+# Spaces ko poori tarah mita kar sahi kiya gaya token
 BOT_TOKEN = "8814630740:AAHOUGlv1AFaDxH3c-12RxX3yQ-0iLJ7qEg"
 bot = telebot.TeleBot(BOT_TOKEN)
 
