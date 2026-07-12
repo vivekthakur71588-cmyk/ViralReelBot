@@ -1,7 +1,7 @@
 import telebot
 
-# Spaces ko poori tarah mita kar sahi kiya gaya token
-BOT_TOKEN = "8814630740:AAHOUGlv1AFaDxH3c-12RxX3yQ-0iLJ7qEg"
+# Bilkul fresh aur sahi format wala token
+BOT_TOKEN = "8814630740:AAH5NZuguoz6mnVjCy-l5kq7F_ETQ17Pvnw"
 bot = telebot.TeleBot(BOT_TOKEN)
 
 @bot.message_handler(commands=['start'])
