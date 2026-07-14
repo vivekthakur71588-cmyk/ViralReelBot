@@ -7,6 +7,15 @@ from telebot.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMar
 BOT_TOKEN = "8814630740:AAHvGwN4xBiQapbaxq6gYqQFWaqqgARRM8o"
 bot = telebot.TeleBot(BOT_TOKEN)
 
+# 🚀 SMART BYPASS: Ye line Railway, Render ya kisi bhi doosre atke huyen container ko forcefully disconnect kar degi!
+try:
+    print("🧹 Cleaning old active sessions from Railway/Render...")
+    bot.remove_webhook()
+    # Dynamic conflict breaker trigger
+    bot.get_updates(offset=-1, timeout=1)
+except Exception as e:
+    print("Cleanup notification:", e)
+
 desc_cache = {}
 
 def get_main_menu():
@@ -60,5 +69,5 @@ def dispatch_description(call):
     bot.send_message(chat_id, f"📝 **Video Caption/Description:**\n\n`{caption}`", parse_mode="Markdown")
     bot.answer_callback_query(call.id)
 
-print("🚀 Fresh token engine ready...")
-bot.infinity_polling()
+print("🚀 Anti-conflict bypass system active...")
+bot.infinity_polling(skip_pending=True)  # Skip pending updates to prevent crashing
