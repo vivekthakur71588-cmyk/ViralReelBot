@@ -1,13 +1,20 @@
 import os
 import requests
 import threading
+import time
 import telebot
-from telebot.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
+from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 
 BOT_TOKEN = "8814630740:AAHvGwN4xBiQapbaxq6gYqQFWaqqgARRM8o"
 bot = telebot.TeleBot(BOT_TOKEN)
 
-desc_cache = {}
+# Forceful session engine reset block
+try:
+    print("🧹 Detaching any stuck active telegram polling routes...")
+    bot.remove_webhook()
+    time.sleep(2)
+except Exception as e:
+    print("Session management note:", e)
 
 def get_main_menu():
     markup = ReplyKeyboardMarkup(resize_keyboard=True)
@@ -39,11 +46,9 @@ def process_links(message):
 
     def api_download_worker():
         try:
-            # Universal open engine mirror
             fallback_url = f"https://api.tiklydown.eu.org/api/download?url={url}"
             fallback_resp = requests.get(fallback_url, timeout=15).json()
             
-            # Extract video URL based on raw response object path
             video_url = None
             if "result" in fallback_resp and "video" in fallback_resp["result"]:
                 video_url = fallback_resp["result"]["video"].get("url") or fallback_resp["result"]["video"].get("noWatermark")
@@ -64,5 +69,5 @@ def process_links(message):
 
     threading.Thread(target=api_download_worker).start()
 
-print("🚀 Core layout fixed successfully...")
-bot.infinity_polling(skip_pending=True)
+print("🚀 Dynamic webhook framework loaded successfully...")
+bot.infinity_polling(skip_pending=True, timeout=20, long_polling_timeout=20)
